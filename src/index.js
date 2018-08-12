@@ -1,5 +1,8 @@
-import React from "react";
-import ReactDOM from "react-dom";
+import React from 'react';
+import ReactDOM from 'react-dom';
+import './index.css';
+import App from './App';
+import registerServiceWorker from './registerServiceWorker';
 
-const element = <h1>Hello Sathish</h1>; //babel will complie this to a react component
-console.log(element);
+ReactDOM.render(<App />, document.getElementById('root'));
+registerServiceWorker();
