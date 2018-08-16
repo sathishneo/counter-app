@@ -3,7 +3,8 @@ import React, { Component } from "react";
 class Counter extends Component {
   state = {
     count: 1,
-    imgUrl: "https://picsum.photos/200"
+    imgUrl: "https://picsum.photos/200",
+    tags: ["tag1", "tag2", "tag3"]
   };
 
   //   styles = {
@@ -11,9 +12,27 @@ class Counter extends Component {
   //     fontWeight: "bold"
   //   };
 
+  //constructor inherits the 'this' object
+  // constructor() {
+  //   super();
+  //   console.log("Constructor: ", this);
+  //   this.incrementCount = this.incrementCount.bind(this);
+  // }
+  // incrementCount() {
+  //   this.state.count++;
+  // }
+
+  incrementCount = () => {
+    console.log("incement: ", this);
+  };
+
+  renderTags() {
+    return this.state.tags.map(tag => <li key={tag}>{tag}</li>);
+  }
   render() {
     return (
-      <React.Fragment>
+      // <React.Fragment>
+      <div>
         {/* <img src={this.state.imgUrl} alt="" /> */}
 
         {/* <span style={this.styles} className="badge badge-primary m-2"> */}
@@ -27,8 +46,15 @@ class Counter extends Component {
         >
           {this.formatCount()}
         </span>
-        <button className="btn btn-secondary btn-sm">Increment</button>
-      </React.Fragment>
+        <button
+          className="btn btn-secondary btn-sm"
+          onClick={this.incrementCount}
+        >
+          Increment
+        </button>
+        <ul>{this.renderTags()}</ul>
+      </div>
+      // </React.Fragment>
     );
   }
   getBadgeClasses() {
