@@ -4,7 +4,8 @@ class Counter extends Component {
   state = {
     count: 1,
     imgUrl: "https://picsum.photos/200",
-    tags: ["tag1", "tag2", "tag3"]
+    // tags: ["tag1", "tag2", "tag3"]
+    tags: []
   };
 
   //   styles = {
@@ -27,7 +28,18 @@ class Counter extends Component {
   };
 
   renderTags() {
-    return this.state.tags.map(tag => <li key={tag}>{tag}</li>);
+    console.log(this.state.tags.length);
+    if (this.state.tags.length === 0) {
+      return <p>There are no tags!!</p>;
+    } else {
+      return (
+        <ul>
+          {this.state.tags.map(tag => (
+            <li key={tag}>{tag}</li>
+          ))}
+        </ul>
+      );
+    }
   }
   render() {
     return (
@@ -52,7 +64,8 @@ class Counter extends Component {
         >
           Increment
         </button>
-        <ul>{this.renderTags()}</ul>
+        {this.state.tags.length === 0 && "Please enter a new tag"}
+        {this.renderTags()}
       </div>
       // </React.Fragment>
     );
