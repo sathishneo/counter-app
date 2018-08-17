@@ -23,10 +23,14 @@ class Counter extends Component {
   //   this.state.count++;
   // }
 
-  incrementCount = () => {
+  handleIncrement = () => {
     console.log("incement: ", this);
+    this.setState({ count: this.state.count + 1 });
   };
 
+  handleDecrement = () => {
+    this.setState({ count: this.state.count - 1 });
+  };
   renderTags() {
     console.log(this.state.tags.length);
     if (this.state.tags.length === 0) {
@@ -59,13 +63,19 @@ class Counter extends Component {
           {this.formatCount()}
         </span>
         <button
-          className="btn btn-secondary btn-sm"
-          onClick={this.incrementCount}
+          className="btn btn-secondary btn-sm m-2"
+          onClick={this.handleIncrement}
         >
-          Increment
+          +
         </button>
-        {this.state.tags.length === 0 && "Please enter a new tag"}
-        {this.renderTags()}
+        <button
+          className="btn btn-secondary btn-sm m-2"
+          onClick={this.handleDecrement}
+        >
+          -
+        </button>
+        {/* <p>{this.state.tags.length === 0 && "Please enter a new tag"}</p> */}
+        {/* {this.renderTags()} */}
       </div>
       // </React.Fragment>
     );
