@@ -53,6 +53,7 @@ class Counter extends Component {
     }
   }
   render() {
+    console.log(this.props);
     return (
       // <React.Fragment>
       <div>
@@ -61,6 +62,8 @@ class Counter extends Component {
         {/* <span style={this.styles} className="badge badge-primary m-2"> */}
         {/* {this.formatCount()} */}
         {/* </span> */}
+        {/* {this.props.children} */}
+        <h4>Counter #{this.props.id}</h4>
         <span
           style={{ fontsize: 10, fontWeight: "bold" }}
           //   className="badge badge-primary m-2"
