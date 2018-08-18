@@ -2,7 +2,7 @@ import React, { Component } from "react";
 
 class Counter extends Component {
   state = {
-    count: 1,
+    value: this.props.value,
     imgUrl: "https://picsum.photos/200",
     // tags: ["tag1", "tag2", "tag3"]
     tags: []
@@ -25,14 +25,14 @@ class Counter extends Component {
 
   handleIncrement = () => {
     // console.log("incement: ", this);
-    this.setState({ count: this.state.count + 1 });
+    this.setState({ value: this.state.value + 1 });
   };
 
   handleDecrement = () => {
-    this.setState({ count: this.state.count - 1 });
+    this.setState({ value: this.state.value - 1 });
   };
   handleDecrementBtn = () => {
-    if (this.state.count === 0) {
+    if (this.state.value === 0) {
       return true;
     }
     return false;
@@ -90,13 +90,13 @@ class Counter extends Component {
   }
   getBadgeClasses() {
     let classes = "badge m-2 badge-";
-    classes += this.state.count === 0 ? "warning" : "primary";
+    classes += this.state.value === 0 ? "warning" : "primary";
     return classes;
   }
 
   formatCount = () => {
-    const { count } = this.state; //object destructuring
-    return count === 0 ? "Zero" : count;
+    const { value } = this.state; //object destructuring
+    return value === 0 ? "Zero" : value;
   };
   //   formatClass() {
   //     if (this.state.count === 0) {
