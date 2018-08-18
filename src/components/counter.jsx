@@ -2,7 +2,7 @@ import React, { Component } from "react";
 
 class Counter extends Component {
   state = {
-    value: this.props.value,
+    value: this.props.counter.value,
     imgUrl: "https://picsum.photos/200",
     // tags: ["tag1", "tag2", "tag3"]
     tags: []
@@ -63,7 +63,7 @@ class Counter extends Component {
         {/* {this.formatCount()} */}
         {/* </span> */}
         {/* {this.props.children} */}
-        <h4>Counter #{this.props.id}</h4>
+        <h4>Counter #{this.props.counter.id}</h4>
         <span
           style={{ fontsize: 10, fontWeight: "bold" }}
           //   className="badge badge-primary m-2"
@@ -87,7 +87,9 @@ class Counter extends Component {
         </button>
         <button
           className="btn btn-danger btn-sm m-2"
-          onClick={this.props.onDelete}
+          onClick={() => {
+            this.props.onDelete(this.props.counter.id);
+          }}
         >
           Delete
         </button>

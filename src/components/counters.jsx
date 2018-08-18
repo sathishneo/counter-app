@@ -10,8 +10,13 @@ class Counters extends Component {
       { id: 4, value: 0 }
     ]
   };
-  handleDelete = () => {
-    console.log("Even raised has been received");
+  handleDelete = counterId => {
+    // console.log("Even raised has been received", counterId);
+    const counters = this.state.counters.filter(
+      counter => counter.id !== counterId
+    );
+    // this.setState({ counters: counters });
+    this.setState({ counters });
   };
   render() {
     return (
@@ -20,8 +25,9 @@ class Counters extends Component {
           <Counter
             key={counter.id}
             onDelete={this.handleDelete}
-            value={counter.value}
-            id={counter.id}
+            // value={counter.value}
+            // id={counter.id}
+            counter={counter}
           >
             {/* <h4>Counter #{counter.id}</h4> */}
           </Counter>
