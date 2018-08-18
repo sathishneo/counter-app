@@ -85,6 +85,12 @@ class Counter extends Component {
         >
           -
         </button>
+        <button
+          className="btn btn-danger btn-sm m-2"
+          onClick={this.props.onDelete}
+        >
+          Delete
+        </button>
         {/* <p>{this.state.tags.length === 0 && "Please enter a new tag"}</p> */}
         {/* {this.renderTags()} */}
       </div>
