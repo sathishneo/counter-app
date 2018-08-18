@@ -24,13 +24,20 @@ class Counter extends Component {
   // }
 
   handleIncrement = () => {
-    console.log("incement: ", this);
+    // console.log("incement: ", this);
     this.setState({ count: this.state.count + 1 });
   };
 
   handleDecrement = () => {
     this.setState({ count: this.state.count - 1 });
   };
+  handleDecrementBtn = () => {
+    if (this.state.count === 0) {
+      return true;
+    }
+    return false;
+  };
+
   renderTags() {
     console.log(this.state.tags.length);
     if (this.state.tags.length === 0) {
@@ -69,8 +76,9 @@ class Counter extends Component {
           +
         </button>
         <button
-          className="btn btn-secondary btn-sm m-2"
+          className="btn btn-secondary btn-sm"
           onClick={this.handleDecrement}
+          disabled={this.handleDecrementBtn()}
         >
           -
         </button>
@@ -86,10 +94,10 @@ class Counter extends Component {
     return classes;
   }
 
-  formatCount() {
+  formatCount = () => {
     const { count } = this.state; //object destructuring
     return count === 0 ? "Zero" : count;
-  }
+  };
   //   formatClass() {
   //     if (this.state.count === 0) {
   //       return "badge badge-warning m-2";
